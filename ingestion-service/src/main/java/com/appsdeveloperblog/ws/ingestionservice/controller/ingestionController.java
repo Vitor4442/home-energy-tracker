@@ -1,5 +1,7 @@
 package com.appsdeveloperblog.ws.ingestionservice.controller;
 
+import com.appsdeveloperblog.ws.ingestionservice.dto.EnergyUsageDto;
+import com.appsdeveloperblog.ws.ingestionservice.service.IngestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
