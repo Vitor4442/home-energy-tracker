@@ -32,9 +32,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UsageService {
 
-    private InfluxDBClient influxDBClient;
-    private DeviceClient deviceClient;
-    private UserClient userClient;
+    private final InfluxDBClient influxDBClient;
+    private final DeviceClient deviceClient;
+    private final UserClient userClient;
 
     @Value("${influx.bucket}")
     private String influxBucket;
