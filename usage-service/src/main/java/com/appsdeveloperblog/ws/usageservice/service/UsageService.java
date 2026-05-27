@@ -5,6 +5,7 @@ import com.appsdeveloperblog.ws.kafka.event.EnergyUsageEvent;
 import com.appsdeveloperblog.ws.usageservice.client.DeviceClient;
 import com.appsdeveloperblog.ws.usageservice.client.UserClient;
 import com.appsdeveloperblog.ws.usageservice.dto.DeviceDto;
+import com.appsdeveloperblog.ws.usageservice.dto.UsageDto;
 import com.appsdeveloperblog.ws.usageservice.dto.UserDto;
 import com.appsdeveloperblog.ws.usageservice.model.DeviceEnergy;
 import com.influxdb.client.InfluxDBClient;
@@ -158,6 +159,11 @@ public class UsageService {
             }
 
         }
+    }
+
+    public UsageDto getXDaysUsageForUser(Long userId, int days){
+        log.info("Getting usage for userId {} over past {} days", userId, days);
+        final List<DeviceDto> devices = deviceClient.getAllDevicesForUser(userId);
     }
 
 
