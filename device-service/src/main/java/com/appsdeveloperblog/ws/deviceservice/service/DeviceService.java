@@ -7,6 +7,8 @@ import com.appsdeveloperblog.ws.deviceservice.mapper.DeviceMapper;
 import com.appsdeveloperblog.ws.deviceservice.repository.DeviceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DeviceService {
     private final DeviceRepository deviceRepository;
@@ -35,4 +37,23 @@ public class DeviceService {
         Device device = deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException("Device not found with id " + id));
         deviceRepository.delete(device);
     }
+
+    public List<DeviceDto> getAllDevicesByUserId(Long userId) {
+        List<Device> devices = deviceRepository.findAllByUserId(userId);
+        return devices.stream()
+                .map(this::mapToDto)
+                .toList();
+    }
+
+
+    private DeviceDto mapToDto(Device device) {
+        DeviceDto dto = new DeviceDto();
+        dto.setId(device.getId());
+        dto.setName(device.getName());
+        dto.setType(device.getType());
+        dto.setLocation(device.getLocation());
+        dto.setUserId(device.getUserId());
+        return dto;
+    }
+
 }
