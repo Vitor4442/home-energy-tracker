@@ -1,6 +1,7 @@
 package com.appsdeveloperblog.ws.insightservice.controller;
 
 import com.appsdeveloperblog.ws.insightservice.dto.InsightDto;
+import com.appsdeveloperblog.ws.insightservice.service.InsightService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
